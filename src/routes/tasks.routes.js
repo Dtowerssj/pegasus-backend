@@ -24,11 +24,12 @@ const {
     deleteTask,
 } = require('../controllers/lists.controllers');
 
-
+/*
 router.get('/tareas/', getTareas);
 router.get('/task/:id', getTask);
 router.post('/task', createTask);
 router.put('/task/:id', updateTask);
 router.delete('/task/:id', deleteTask);
+*/
 
 module.exports = router;

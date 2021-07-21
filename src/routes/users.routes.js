@@ -15,9 +15,9 @@ router.get('/', (req,res) => {
     res.json("Hola mundo")
 });
 router.get('/usuarios', getUsuarios);
-router.post('/login', getLogin);
+/*router.post('/login', getLogin);
 router.post('/', createUser);
 router.put('/:id', updateUser);
 router.delete('/:id', deleteUser);
-
+*/
 module.exports = router;
