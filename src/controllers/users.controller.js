@@ -14,7 +14,7 @@ const getUsuarios = async (req, res) => {
   }
 };
 
-export const getUsuariobyId = async (req, res) => {
+const getUsuariobyId = async (req, res) => {
   try {
     const id = parseInt(req.params.id);
     const response = await conn.query(queries.GET_USER_BY_ID, [id]);
@@ -25,7 +25,7 @@ export const getUsuariobyId = async (req, res) => {
   }
 };
 
-export const createUsuario = async (req, res) => {
+const createUsuario = async (req, res) => {
   const { nombre, usuario, correo, clave } = req.body;
 
   try {
@@ -54,7 +54,7 @@ export const createUsuario = async (req, res) => {
   }
 };
 
-export const updateUsuario = async (req, res) => {
+const updateUsuario = async (req, res) => {
   try {
     const id = parseInt(req.params.id);
     const { usuario, clave, salario } = req.body;
@@ -71,7 +71,7 @@ export const updateUsuario = async (req, res) => {
   }
 };
 
-export const deleteUsuario = async (req, res) => {
+const deleteUsuario = async (req, res) => {
   try {
     const id = parseInt(req.params.id);
     const response = await conn.query(queries.DELETE_USER, [id]);

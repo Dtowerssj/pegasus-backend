@@ -13,7 +13,7 @@ const getTareas = async (req, res) => {
   }
 };
 
-export const getTareasbyId = async (req, res) => {
+const getTareasbyId = async (req, res) => {
   try {
     const id = parseInt(req.params.id);
     const response = await conn.query(queries.getTaskbyId, [id]);
@@ -24,7 +24,7 @@ export const getTareasbyId = async (req, res) => {
   }
 };
 
-export const createTareas = async (req, res) => {
+const createTareas = async (req, res) => {
   try {
     const { nombre, descripcion } = req.body;
     const response = await conn.query(queries.createTask, [
@@ -46,7 +46,7 @@ export const createTareas = async (req, res) => {
   }
 };
 
-export const updateTareas = async (req, res) => {
+const updateTareas = async (req, res) => {
   try {
     const id = parseInt(req.params.id);
     const { nombre, descripcion } = req.body;
@@ -61,7 +61,7 @@ export const updateTareas = async (req, res) => {
   }
 };
 
-export const deleteTareas = async (req, res) => {
+const deleteTareas = async (req, res) => {
   try {
     const id = parseInt(req.params.id);
     const response = await conn.query(queries.deleteTask, [id]);

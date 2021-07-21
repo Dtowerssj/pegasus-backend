@@ -2,7 +2,7 @@ import queries from "../utils/queries";
 import { conn } from "../utils/db";
 import { Request, Response } from "express";
 
-export const getTags = async (req, res) => {
+const getTags = async (req, res) => {
   try {
     const response = await conn.query(queries.getTags);
     return res.status(200).json(response.rows);
@@ -12,7 +12,7 @@ export const getTags = async (req, res) => {
   }
 };
 
-export const getTagsbyId = async (req, res) => {
+const getTagsbyId = async (req, res) => {
   try {
     const id = parseInt(req.params.id);
     const response = await conn.query(queries.getTagsbyId, [id]);
@@ -23,7 +23,7 @@ export const getTagsbyId = async (req, res) => {
   }
 };
 
-export const createTags = async (req, res) => {
+const createTags = async (req, res) => {
   const task = await conn.connect();
 
   try {
@@ -37,7 +37,7 @@ export const createTags = async (req, res) => {
   }
 };
 
-export const updateTags = async (req, res) => {
+const updateTags = async (req, res) => {
   try {
     const id = parseInt(req.params.id);
     const { nombre } = req.body;
@@ -49,7 +49,7 @@ export const updateTags = async (req, res) => {
   }
 };
 
-export const deleteTags = async (req, res) => {
+const deleteTags = async (req, res) => {
   try {
     const id = parseInt(req.params.id);
     const response = await conn.query(queries.deleteTags, [id]);
