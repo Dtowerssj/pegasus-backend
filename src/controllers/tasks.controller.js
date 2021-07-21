@@ -1,11 +1,13 @@
-import queries from "../utils/queries";
-import { conn } from "../utils/db";
+
+
+const queries = require("../utils/queries");
+const conn = require("../utils/db");
 
 const getTareas = async (req, res)=> {
     console.log("estas en get tareas");
-    const conn = await pool.connect();
+    const client = await conn.connect();
     try{
-        const response = await conn.query(queries.getTasks);
+        const response = await client.query(queries.getTasks);
         return res.status(200).json(response.rows);
     }catch (error) {
         console.log(error);

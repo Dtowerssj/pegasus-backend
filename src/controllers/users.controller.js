@@ -1,3 +1,4 @@
+
 const conn = require('../utils/db');
 const queries = require('../utils/queries')
 //import { genSaltSync, hashSync } from 'bcryptjs';
@@ -5,9 +6,9 @@ const queries = require('../utils/queries')
 
 const getUsuarios = async (req, res) => {
     console.log("estas en get users")
-    const conn = await pool.connect();
+    const client = await conn.connect();
     try {
-        const response = await conn.query(queries.GET_USERS);
+        const response = await client.query(queries.GET_USERS);
         return res.status(200).json(response.rows);
     } catch (error) {
         console.log(error);
