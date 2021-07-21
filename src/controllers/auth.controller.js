@@ -1,10 +1,7 @@
-import jwt from "jsonwebtoken";
-import config from "../config/aliases";
-import { Request, response, Response } from "express";
+
+//import config from "../config/aliases";
 import { conn } from "../utils/db";
 import queries from "../utils/queries";
-import { QueryResult } from "pg";
-import { compare } from "bcryptjs";
 
 //Login
 export const getLogin = async (req, res) => {
