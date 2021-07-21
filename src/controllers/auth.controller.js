@@ -1,7 +1,7 @@
 
 //import config from "../config/aliases";
-import { conn } from "../utils/db";
-import queries from "../utils/queries";
+const conn = require("../utils/db");
+const queries  = require("../utils/queries");
 
 //Login
 export const getLogin = async (req, res) => {
