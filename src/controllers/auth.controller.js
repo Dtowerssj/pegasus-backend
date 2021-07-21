@@ -4,7 +4,7 @@ const conn = require("../utils/db");
 const queries  = require("../utils/queries");
 
 //Login
-export const getLogin = async (req, res) => {
+const getLogin = async (req, res) => {
   const client = await conn.connect();
   console.log("hola");
   try {
