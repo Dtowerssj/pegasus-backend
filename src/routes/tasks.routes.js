@@ -22,7 +22,7 @@ const {
     deleteTag,
     deleteList,
     deleteTask,
-} = require('../controllers/lists.controllers');
+} = require('../controllers/tasks.controller');
 
 /*
 router.get('/tareas/', getTareas);
