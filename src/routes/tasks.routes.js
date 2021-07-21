@@ -1,35 +1,33 @@
-const { Router } = require('express');
+const { Router } = require("express");
 const router = Router();
 
 const {
-    getTags,
-    getTag,
+  getTags,
+  getTagsbyId,
 
-    getLists,
+  getTareas,
+  getTareasbyId,
 
-    getInbox,
-    getTasks,
-    getTask,
+  createTags,
+  createTareas,
 
-    createTag,
-    createList,
-    createTask,
+  updateTags,
+  updateTareas,
 
-    updateTag,
-    updateList,
-    updateTask,
+  deleteTags,
+  deleteTareas,
+} = require("../controllers/tasks.controller", "../controllers/tags.controller");
 
-    deleteTag,
-    deleteList,
-    deleteTask,
-} = require('../controllers/tasks.controller');
+router.get("/tareas/", getTareas);
+router.get("/task/:id", getTareasbyId);
+router.post("/task", createTareas);
+router.put("/task/:id", updateTareas);
+router.delete("/task/:id", deleteTareas);
 
-/*
-router.get('/tareas/', getTareas);
-router.get('/task/:id', getTask);
-router.post('/task', createTask);
-router.put('/task/:id', updateTask);
-router.delete('/task/:id', deleteTask);
-*/
+router.get("/tags/", getTags);
+router.get("/tags/:id", getTagsbyId);
+router.post("/tags", createTags);
+router.put("/tags/:id", updateTags);
+router.delete("/tags/:id", deleteTags);
 
 module.exports = router;
