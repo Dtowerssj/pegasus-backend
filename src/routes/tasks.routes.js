@@ -2,19 +2,10 @@ const { Router } = require("express");
 const router = Router();
 
 const {
-  getTags,
-  getTagsbyId,
-
   getTareas,
   getTareasbyId,
-
-  createTags,
   createTareas,
-
-  updateTags,
   updateTareas,
-
-  deleteTags,
   deleteTareas,
 } = require("../controllers/tasks.controller");
 
