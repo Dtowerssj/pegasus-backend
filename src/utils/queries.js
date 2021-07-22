@@ -2,7 +2,7 @@
 const queries = {
    
     //Usuarios"
-      GET_usuarios: `SELECT id, nombre, usuario, correo, clave FROM usuarios;`,
+      GET_usuarios: `SELECT id, nombre, correo, clave, usuario FROM public.usuarios;`,
       GET_USER_BY_ID: `SELECT * FROM usuarios WHERE id = $1`,
       INSERT_USER: `INSERT INTO usuarios(nombre, usuario, correo, clave) VALUES ($1, $2, $3, $4);`,
   
