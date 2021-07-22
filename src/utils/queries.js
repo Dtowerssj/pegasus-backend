@@ -3,10 +3,10 @@ const queries = {
    
     //Usuarios"
       GET_USERS: `SELECT id, nombre, usuario, correo, clave FROM users;`,
-      GET_USER_BY_ID: `SELECT * FROM public users WHERE id = $1`,
+      GET_USER_BY_ID: `SELECT * FROM users WHERE id = $1`,
       INSERT_USER: `INSERT INTO users(nombre, usuario, correo, clave) VALUES ($1, $2, $3, $4);`,
-      DELETE_USER: 'DELETE FROM public usuarios WHERE ID = $1',
-      UPDATE_USER: 'UPDATE public usuarios SET "Usuario"=$1, "Clave"=$2, "Salario"=$3 WHERE id=$4',
+      DELETE_USER: 'DELETE FROM usuarios WHERE ID = $1',
+      UPDATE_USER: 'UPDATE usuarios SET "Usuario"=$1, "Clave"=$2, "Salario"=$3 WHERE id=$4',
       LOGIN_USER: 'SELECT "Usuario", "Clave" FROM "Trabajadores" WHERE id = $1',
   
       //Tareas
