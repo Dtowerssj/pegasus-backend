@@ -13,7 +13,9 @@ server.use(bodyParser.urlencoded({ extended: true }));
 //rutas
 server.use(require('./routes/users.routes'));
 server.use('/usuarios', require('./routes/users.routes'));
-server.use('/tareas', require('./routes/tasks.routes'));
+
 server.use(require('./routes/tasks.routes'));
+server.use('/tareas', require('./routes/tasks.routes'));
+
 
 module.exports = server;
