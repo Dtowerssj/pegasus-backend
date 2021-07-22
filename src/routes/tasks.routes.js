@@ -10,10 +10,10 @@ const {
 } = require("../controllers/tasks.controller");
 
 
-router.get("/tareas", getTareas);
-router.get("/task/:id", getTareasbyId);
-router.post("/task", createTareas);
-router.put("/task/:id", updateTareas);
-router.delete("/task/:id", deleteTareas);
+router.get("/", getTareas);
+router.get("/:id", getTareasbyId);
+router.post("/", createTareas);
+router.put("/:id", updateTareas);
+router.delete("/:id", deleteTareas);
 
 module.exports = router;
