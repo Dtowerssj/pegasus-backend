@@ -11,9 +11,13 @@ server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 
 //rutas
+/*
 server.use(require('./routes/users.routes'));
 
 server.use(require('./routes/tasks.routes'));
+*/
 
+server.use('/api/usuarios', require('./routes/users.routes'));
+server.use('/api', require('./routes/tasks.routes'));
 
 module.exports = server;

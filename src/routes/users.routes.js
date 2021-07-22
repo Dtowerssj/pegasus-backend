@@ -9,9 +9,8 @@ const {
 
 const { getLogin } = require("../controllers/auth.controller")
 
-router.get("/usuarios", getUsuarios);
-router.get("/usuarios/:id", getUsuariobyId);
-router.post("/login", getLogin);
-router.post("/usuarios", createUsuario);
+router.get('/', getUsuarios);
+router.post('/login', getLogin);
+router.post('/', createUsuario);
 
 module.exports = router;
