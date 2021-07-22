@@ -16,7 +16,7 @@ const {
 
   deleteTags,
   deleteTareas,
-} = require("../controllers/tasks.controller", "../controllers/tags.controller");
+} = require("../controllers/tasks.controller");
 
 
 router.get("/tareas/", getTareas);
