@@ -8,10 +8,12 @@ const getTareas = async (req, res) => {
     return res.status(200).json(response.rows);
   } catch {
     return res.status(505);
-}finally{
+  }finally{
   client.release(true);
-}
+  }
 };
+
+
 
 const getTareasbyId = async (req, res) => {
   try {
