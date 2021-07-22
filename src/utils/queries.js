@@ -2,9 +2,9 @@
 const queries = {
    
     //Usuarios"
-      GET_USERS: `SELECT id, nombre, usuario, correo, clave FROM users;`,
-      GET_USER_BY_ID: `SELECT * FROM users WHERE id = $1`,
-      INSERT_USER: `INSERT INTO users(nombre, usuario, correo, clave) VALUES ($1, $2, $3, $4);`,
+      GET_usuarios: `SELECT id, nombre, usuario, correo, clave FROM usuarios;`,
+      GET_USER_BY_ID: `SELECT * FROM usuarios WHERE id = $1`,
+      INSERT_USER: `INSERT INTO usuarios(nombre, usuario, correo, clave) VALUES ($1, $2, $3, $4);`,
   
       //Tareas
        GET_TAREAS: `SELECT id, nombre, descripcion FROM tareas;`,
@@ -23,7 +23,7 @@ const queries = {
         */
 
        //Login
-       GET_LOGIN: `SELECT * FROM users WHERE correo = $1 AND clave = $2`,
+       GET_LOGIN: `SELECT * FROM usuarios WHERE correo = $1 AND clave = $2`,
   
   };
     
