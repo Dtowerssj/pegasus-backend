@@ -7,10 +7,11 @@ const getTareas = async (req, res) => {
   try {
     const response = await client.query(queries.getTasks);
     return res.status(200).json(response.rows);
-  } catch (error) {
-    console.log(error);
-    return res.status(500).json("Internal Server error");
-  }
+  } catch {
+    res.status(505);
+}finally{
+  client.release(true);
+}
 };
 
 const getTareasbyId = async (req, res) => {

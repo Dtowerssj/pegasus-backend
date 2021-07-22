@@ -19,7 +19,7 @@ const {
 } = require("../controllers/tasks.controller");
 
 
-router.get("/tareas/", getTareas);
+router.get("/tareas", getTareas);
 router.get("/task/:id", getTareasbyId);
 router.post("/task", createTareas);
 router.put("/task/:id", updateTareas);
