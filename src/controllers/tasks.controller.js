@@ -5,7 +5,7 @@ const getTareas = async (req, res) => {
   console.log("estas en get tareas");
   const client = await conn.connect();
   try {
-    const response = await client.query(queries.getTasks);
+    const response = await client.query(queries.GET_TAREAS);
     return res.status(200).json(response.rows);
   } catch {
     res.status(505);

@@ -10,7 +10,7 @@ const queries = {
       LOGIN_USER: 'SELECT "Usuario", "Clave" FROM public."Trabajadores" WHERE id = $1',
   
       //Tareas
-       getTasks: `SELECT id, nombre, descripcion FROM tareas;`,
+       GET_TAREAS: `SELECT id, nombre, descripcion FROM tareas;`,
        getTaskbyId: 'SELECT * FROM public.tareas WHERE id = $1',
        createTask: `INSERT INTO public.tareas(nombre, descripcion) VALUES ($1, $2);`,
        updateTask: 'UPDATE task SET value = $1, img = $2, strikethrough = $3, position_list = $4, position_inbox = $5, edited = $6, time_limit = $7, time_alert = $8, tag = $9, list = $10  WHERE task_id = $11 RETURNING *',
