@@ -20,6 +20,6 @@ server.use(require('./routes/tasks.routes'));
 */
 
 server.use('/api/business', businessRoutes);
-server.use('/api/productos', productRoutes);
+server.use('/api/products', productRoutes);
 
 module.exports = server;

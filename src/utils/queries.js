@@ -11,17 +11,17 @@ const queries = {
 
       // Negocios (Establecimientos)
       GET_BUSINESS: `SELECT id, nombre, correo, clave FROM public.establecimientos;`,
-      GET_BUSINESS_BY_ID: `SELECT * FROM usuarios WHERE id = $1`,
-      INSERT_BUSINESS: `INSERT INTO usuarios(nombre, usuario, correo, clave) VALUES ($1, $2, $3, $4);`,
-      UPDATE_BUSINESS: 'UPDATE task SET value = $1, img = $2, strikethrough = $3, position_list = $4, position_inbox = $5, edited = $6, time_limit = $7, time_alert = $8, tag = $9, list = $10  WHERE task_id = $11 RETURNING *',
-      DELETE_BUSINESS: '',
+      GET_BUSINESS_BY_ID: `SELECT * FROM establecimientos WHERE id = $1`,
+      INSERT_BUSINESS: `INSERT INTO establecimientos (nombre, correo, clave) VALUES ($1, $2, $3);`,
+      UPDATE_BUSINESS: 'UPDATE establecimientos SET nombre = $1, correo = 2$, clave = $3  WHERE id = $4 RETURNING *',
+      DELETE_BUSINESS: 'DELETE FROM establecimientos WHERE id = $1',
   
       //Productos
       GET_PRODUCTS: `SELECT id, nombre, descripcion, precio FROM public.productos;`,
-      GET_PRODUCT: 'SELECT * FROM tareas WHERE id = $1',
-      CREATE_PRODUCT: `INSERT INTO tareas(nombre, descripcion) VALUES ($1, $2);`,
-      UPDATE_PRODCUT: 'UPDATE task SET value = $1, img = $2, strikethrough = $3, position_list = $4, position_inbox = $5, edited = $6, time_limit = $7, time_alert = $8, tag = $9, list = $10  WHERE task_id = $11 RETURNING *',
-      DELETE_PRODUCT: 'DELETE FROM tareas WHERE id = $1',
+      GET_PRODUCT: 'SELECT * FROM productos WHERE id = $1',
+      CREATE_PRODUCT: `INSERT INTO productos(nombre, descripcion, precio) VALUES ($1, $2, $3);`,
+      UPDATE_PRODCUT: 'UPDATE productos SET nombre = $1, descripcion = $2, precio = $3  WHERE id = $4 RETURNING *',
+      DELETE_PRODUCT: 'DELETE FROM productos WHERE id = $1',
 
   
   };
