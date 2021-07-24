@@ -18,7 +18,7 @@ const getProducts = async (req, res) => {
 const getProductbyId = async (req, res) => {
   try {
     const id = parseInt(req.params.id);
-    const response = await conn.query(queries.getTaskbyId, [id]);
+    const response = await conn.query(queries.GET_PRODUCT, [id]);
     return res.status(200).json(response.rows);
   } catch (error) {
     console.log(error);
@@ -29,7 +29,7 @@ const getProductbyId = async (req, res) => {
 const createProduct = async (req, res) => {
   try {
     const { nombre, descripcion, precio } = req.body;
-    const response = await conn.query(queries.createTask, [
+    const response = await conn.query(queries.CREATE_PRODUCT, [
       nombre,
       descripcion,
       precio,
@@ -54,7 +54,7 @@ const updateProduct = async (req, res) => {
   try {
     const id = parseInt(req.params.id);
     const { nombre, descripcion, precio } = req.body;
-    const response = await conn.query(queries.updateTask, [
+    const response = await conn.query(queries.UPDATE_PRODCUT, [
       nombre,
       descripcion,
       precio,
@@ -69,7 +69,7 @@ const updateProduct = async (req, res) => {
 const deleteProduct = async (req, res) => {
   try {
     const id = parseInt(req.params.id);
-    const response = await conn.query(queries.deleteTask, [id]);
+    const response = await conn.query(queries.DELETE_PRODUCT, [id]);
     return res.status(200).json(`Producto ${id} eliminado del catálogo satisfactoraimente`);
   } catch (error) {
     console.log(error);

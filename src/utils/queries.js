@@ -17,7 +17,7 @@ const queries = {
       DELETE_BUSINESS: '',
   
       //Productos
-      GET_PRODUCTOS: `SELECT id, nombre, descripcion, precio FROM public.productos;`,
+      GET_PRODUCTS: `SELECT id, nombre, descripcion, precio FROM public.productos;`,
       GET_PRODUCT: 'SELECT * FROM tareas WHERE id = $1',
       CREATE_PRODUCT: `INSERT INTO tareas(nombre, descripcion) VALUES ($1, $2);`,
       UPDATE_PRODCUT: 'UPDATE task SET value = $1, img = $2, strikethrough = $3, position_list = $4, position_inbox = $5, edited = $6, time_limit = $7, time_alert = $8, tag = $9, list = $10  WHERE task_id = $11 RETURNING *',
