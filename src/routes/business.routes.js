@@ -11,12 +11,12 @@ const {
 
 const { getLogin } = require("../controllers/auth.controller")
 
-router.get('/business', getBusiness);
-router.get('/business/:id', getBusinessbyId);
-router.post('/login', getLogin);
-router.post('/business', createBusiness);
-router.put('/business/:id', updateBusiness);
-router.delete('business/:id', deleteBusiness);
+router.get('/', getBusiness);
+router.get('/:id', getBusinessbyId);
+router.post('/', getLogin);
+router.post('/', createBusiness);
+router.put('/:id', updateBusiness);
+router.delete('/:id', deleteBusiness);
 
 module.exports = router;
 

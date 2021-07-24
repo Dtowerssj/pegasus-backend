@@ -19,7 +19,7 @@ server.use(require('./routes/users.routes'));
 server.use(require('./routes/tasks.routes'));
 */
 
-server.use('/api/usuarios', businessRoutes);
-server.use('/api/tareas', productRoutes);
+server.use('/api/business', businessRoutes);
+server.use('/api/productos', productRoutes);
 
 module.exports = server;
