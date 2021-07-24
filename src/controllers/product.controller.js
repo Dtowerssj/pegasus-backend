@@ -1,10 +1,10 @@
 const queries = require("../utils/queries");
 const conn = require("../utils/db");
 
-const getTareas = async (req, res) => {
+const getProducts = async (req, res) => {
   const client = await conn.connect();
   try {
-    const response = await client.query(queries.GET_TAREAS);
+    const response = await client.query(queries.GET_PRODUCTS);
     return res.status(200).json(response.rows);
   } catch {
     return res.status(505);
@@ -15,7 +15,7 @@ const getTareas = async (req, res) => {
 
 
 
-const getTareasbyId = async (req, res) => {
+const getProductbyId = async (req, res) => {
   try {
     const id = parseInt(req.params.id);
     const response = await conn.query(queries.getTaskbyId, [id]);
@@ -26,19 +26,21 @@ const getTareasbyId = async (req, res) => {
   }
 };
 
-const createTareas = async (req, res) => {
+const createProduct = async (req, res) => {
   try {
-    const { nombre, descripcion } = req.body;
+    const { nombre, descripcion, precio } = req.body;
     const response = await conn.query(queries.createTask, [
       nombre,
       descripcion,
+      precio,
     ]);
     return res.status(200).json({
       message: "Tarea creada",
       body: {
-        Tarea: {
+        Producto: {
           nombre,
           descripcion,
+          precio
         },
       },
     });
@@ -48,13 +50,14 @@ const createTareas = async (req, res) => {
   }
 };
 
-const updateTareas = async (req, res) => {
+const updateProduct = async (req, res) => {
   try {
     const id = parseInt(req.params.id);
-    const { nombre, descripcion } = req.body;
+    const { nombre, descripcion, precio } = req.body;
     const response = await conn.query(queries.updateTask, [
       nombre,
       descripcion,
+      precio,
     ]);
     return res.status(200).json(`Tarea ${id} actualizada satisfactoriamente`);
   } catch (error) {
@@ -63,24 +66,24 @@ const updateTareas = async (req, res) => {
   }
 };
 
-const deleteTareas = async (req, res) => {
+const deleteProduct = async (req, res) => {
   try {
     const id = parseInt(req.params.id);
     const response = await conn.query(queries.deleteTask, [id]);
-    return res.status(200).json(`Tarea ${id} eliminada satisfactoraimente`);
+    return res.status(200).json(`Producto ${id} eliminado del catálogo satisfactoraimente`);
   } catch (error) {
     console.log(error);
     res.status(500);
   }
 };
 
-module.exports = {
-  getTareas,
-  getTareasbyId,
+module.exports = {    
+  getProducts,
+  getProductbyId,
 
-  createTareas,
+  createProduct,
 
-  updateTareas,
+  updateProduct,
 
-  deleteTareas,
+  deleteProduct,
 };

@@ -1,8 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const usersRoutes = require("./routes/users.routes");
-const tasksRoutes = require("./routes/tasks.routes");
+const businessRoutes = require("./routes/business.routes");
+const productRoutes = require("./routes/product.routes");
 
 //inicializaciones
 const server = express();
@@ -19,7 +19,7 @@ server.use(require('./routes/users.routes'));
 server.use(require('./routes/tasks.routes'));
 */
 
-server.use('/api/usuarios', usersRoutes);
-server.use('/api/tareas', tasksRoutes);
+server.use('/api/usuarios', businessRoutes);
+server.use('/api/tareas', productRoutes);
 
 module.exports = server;

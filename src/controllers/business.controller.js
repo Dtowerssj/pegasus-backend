@@ -1,9 +1,8 @@
 const conn = require("../utils/db");
-const queries = require("../utils/queries");
-//import { genSaltSync, hashSync } from 'bcryptjs';
+const queries = require("../utils/queries");  
 
-const getUsuarios = async (req, res) => {
-  //console.log("estas en get users");
+const getBusiness = async (req, res) => {
+  console.log("estas en get business");
   const client = await conn.connect();
   try {
     const response = await client.query(queries.GET_USERS);
@@ -15,7 +14,7 @@ const getUsuarios = async (req, res) => {
 }
 };
 
-const getUsuariobyId = async (req, res) => {
+const getBusinessbyId = async (req, res) => {
   try {
     const id = parseInt(req.params.id);
     const response = await conn.query(queries.GET_USER_BY_ID, [id]);
@@ -26,24 +25,20 @@ const getUsuariobyId = async (req, res) => {
   }
 };
 
-const createUsuario = async (req, res) => {
-  const { nombre, usuario, correo, clave } = req.body;
+const createBusiness = async (req, res) => {
+  const { nombre, correo, clave } = req.body;
 
   try {
-    const salt = genSaltSync(10);
-    const hashedPassword = hashSync(clave, salt);
     const response = await conn.query(queries.INSERT_USER, [
       nombre,
-      usuario.toLowerCase(),
-      correo,
-      hashedPassword,
+      correo.toLowerCase(),
+      clave
     ]);
     return res.status(200).json({
-      message: "Usuario creado",
+      message: "Negocio creado",
       body: {
-        Trabajador: {
+        Business: {
           nombre,
-          usuario,
           correo,
           clave,
         },
@@ -51,32 +46,32 @@ const createUsuario = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    return res.status(500).json("Usuario no creado");
+    return res.status(500).json("Negocio no creado");
   }
 };
 
-const updateUsuario = async (req, res) => {
+const updateBusiness = async (req, res) => {
   try {
     const id = parseInt(req.params.id);
-    const { usuario, clave, salario } = req.body;
+    const { nombre, correo, clave } = req.body;
     const response = await conn.query(queries.UPDATE_USER, [
-      usuario,
+      nombre,
+      correo,
       clave,
-      salario,
       id,
     ]);
-    return res.status(200).json(`Usuario ${id} actualizado satisfactoriamente`);
+    return res.status(200).json(`Negocio ${id} actualizado satisfactoriamente`);
   } catch (erorr) {
     console.log(error);
     res.status(500);
   }
 };
 
-const deleteUsuario = async (req, res) => {
+const deleteBusiness = async (req, res) => {
   try {
     const id = parseInt(req.params.id);
     const response = await conn.query(queries.DELETE_USER, [id]);
-    return res.status(200).json(`Usuario ${id} eliminado satisfactoriamente`);
+    return res.status(200).json(`Negocio ${id} eliminado satisfactoriamente`);
   } catch (error) {
     console.log(error);
     res.status(500);
@@ -84,12 +79,12 @@ const deleteUsuario = async (req, res) => {
 };
 
 module.exports = {
-  getUsuarios,
-  getUsuariobyId,
+  getBusiness,
+  getBusinessbyId,
 
-  createUsuario,
+  createBusiness,
 
-  updateUsuario,
+  updateBusiness,
 
-  deleteUsuario,
+  deleteBusiness,
 };

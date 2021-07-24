@@ -1,5 +1,5 @@
 {
-  "name": "tm-back",
+  "name": "p3-back",
   "version": "1.0.0",
   "description": "Api Rest para Task Master",
   "main": "index.js",
