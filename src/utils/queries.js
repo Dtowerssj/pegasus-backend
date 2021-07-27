@@ -20,7 +20,7 @@ const queries = {
       GET_PRODUCTS: `SELECT id, nombre, descripcion, precio FROM public.productos;`,
       GET_PRODUCT: 'SELECT * FROM productos WHERE id = $1',
       CREATE_PRODUCT: `INSERT INTO productos(nombre, descripcion, precio) VALUES ($1, $2, $3);`,
-      UPDATE_PRODCUT: 'UPDATE productos SET nombre = $1, descripcion = $2, precio = $3  WHERE id = $4 RETURNING *',
+      UPDATE_PRODUCT: 'UPDATE productos SET nombre = $1, descripcion = $2, precio = $3  WHERE id = $4 RETURNING *',
       DELETE_PRODUCT: 'DELETE FROM productos WHERE id = $1',
 
   
