@@ -55,10 +55,10 @@ const updateProduct = async (req, res) => {
     const id = parseInt(req.params.id);
     const { nombre, descripcion, precio } = req.body;
     const response = await conn.query(queries.UPDATE_PRODUCT, [
-      id,
       nombre,
       descripcion,
       precio,
+      id
     ]);
     return res.status(200).json(`prooducto ${id} actualizado satisfactoriamente`);
   } catch (error) {
