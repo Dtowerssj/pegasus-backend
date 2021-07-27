@@ -55,6 +55,7 @@ const updateProduct = async (req, res) => {
     const id = parseInt(req.params.id);
     const { nombre, descripcion, precio } = req.body;
     const response = await conn.query(queries.UPDATE_PRODUCT, [
+      id,
       nombre,
       descripcion,
       precio,
