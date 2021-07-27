@@ -35,7 +35,7 @@ const createProduct = async (req, res) => {
       precio,
     ]);
     return res.status(200).json({
-      message: "Tarea creada",
+      message: "producto creado",
       body: {
         Producto: {
           nombre,
@@ -54,12 +54,12 @@ const updateProduct = async (req, res) => {
   try {
     const id = parseInt(req.params.id);
     const { nombre, descripcion, precio } = req.body;
-    const response = await conn.query(queries.UPDATE_PRODCUT, [
+    const response = await conn.query(queries.UPDATE_PRODUCT, [
       nombre,
       descripcion,
       precio,
     ]);
-    return res.status(200).json(`Tarea ${id} actualizada satisfactoriamente`);
+    return res.status(200).json(`prooducto ${id} actualizado satisfactoriamente`);
   } catch (error) {
     console.log(error);
     res.status(500);

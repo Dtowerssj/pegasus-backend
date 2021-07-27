@@ -5,8 +5,9 @@ const queries  = require("../utils/queries");
 
 //Login
 const getLogin = async (req, res) => {
+  console.log("estas en getLogin");
   const client = await conn.connect();
-  console.log("hola");
+  
   try {
     const { correo, clave } = req.body;
     const response = await client.query(queries.GET_LOGIN, [correo, clave]);
@@ -19,9 +20,15 @@ const getLogin = async (req, res) => {
         },
       ]);
     } else {
+      res.status(200).json([
+        {
+          status: 200,
+          messageError: "Usuario loggueado",
+        },
+      ]);
       res.status(200).json(response.rows);
     }
-    console.log("login hecho");
+    
   } catch {
     res.status(505);
   } finally {
