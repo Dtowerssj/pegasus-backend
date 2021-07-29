@@ -33,7 +33,8 @@ const getLogin = async (req, res) => {
               status: 200,
               messageError: "Establecimiento logueado",
             },
-          ], res.status(200).json(response.rows));
+            res.status(200).json(response.rows)
+          ]);
         }
       } catch {
         res.status(505);
