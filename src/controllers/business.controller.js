@@ -29,7 +29,7 @@ const createBusiness = async (req, res) => {
   const { nombre, correo, clave } = req.body;
 
   try {
-    const response = await conn.query(queries.INSERT_BUSINESS, [
+    const response = await conn.query(queries.CREATE_BUSINESS, [
       nombre,
       correo.toLowerCase(),
       clave

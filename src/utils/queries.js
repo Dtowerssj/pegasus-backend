@@ -2,17 +2,20 @@
 const queries = {
    
     //Usuarios"
-      GET_usuarios: `SELECT id, nombre, correo, clave, usuario FROM public.usuarios;`,
+      GET_USERS: `SELECT * FROM usuarios;`,
       GET_USER_BY_ID: `SELECT * FROM usuarios WHERE id = $1`,
-      INSERT_USER: `INSERT INTO usuarios(nombre, usuario, correo, clave) VALUES ($1, $2, $3, $4);`,
+      CREATE_USER: `INSERT INTO usuarios(nombre, correo, clave) VALUES ($1, $2, $3);`,
+      UPDATE_USER: 'UPDATE usuarios SET nombre = $1, correo = 2$, clave = $3  WHERE id = $4 RETURNING *',
+      DELETE_USER: 'DELETE FROM usuarios WHERE id = $1',
 
       //Login
-      GET_LOGIN: `SELECT * FROM establecimientos WHERE correo = $1 AND clave = $2`,
+      BUSINESS_LOGIN: `SELECT * FROM establecimientos WHERE correo = $1 AND clave = $2`,
+      USER_LOGIN: `SELECT * FROM usuarios WHERE correo = $1 AND clave = $2`,
 
       // Negocios (Establecimientos)
       GET_BUSINESS: `SELECT id, nombre, correo, clave FROM public.establecimientos;`,
       GET_BUSINESS_BY_ID: `SELECT * FROM establecimientos WHERE id = $1`,
-      INSERT_BUSINESS: `INSERT INTO establecimientos (nombre, correo, clave) VALUES ($1, $2, $3);`,
+      CREATE_BUSINESS: `INSERT INTO establecimientos (nombre, correo, clave) VALUES ($1, $2, $3);`,
       UPDATE_BUSINESS: 'UPDATE establecimientos SET nombre = $1, correo = 2$, clave = $3  WHERE id = $4 RETURNING *',
       DELETE_BUSINESS: 'DELETE FROM establecimientos WHERE id = $1',
   
