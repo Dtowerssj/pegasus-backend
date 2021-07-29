@@ -53,8 +53,6 @@ const getLogin = async (req, res) => {
     
   } catch {
     res.status(505);
-  } finally {
-    client.release(true);
   }
 };
 
