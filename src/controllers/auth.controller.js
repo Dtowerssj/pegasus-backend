@@ -20,7 +20,7 @@ const getLogin = async (req, res) => {
         const response2 = await client.query(queries.BUSINESS_LOGIN, [correo, clave]);
 
         if (typeof response2.rows[0] === "undefined") {
-          res.status(200).json([
+          res.status(500).json([
             {
               status: 404,
               messageError: "Ni usuario ni establecimientos encontrados",
