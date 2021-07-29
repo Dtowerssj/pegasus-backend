@@ -17,6 +17,7 @@ const getLogin = async (req, res) => {
         {
           status: 404,
           messageError: "Usuario no encontrado",
+         
         },
       ]);
     } else {
@@ -24,6 +25,14 @@ const getLogin = async (req, res) => {
         {
           status: 200,
           messageError: "Usuario loggueado",
+          body: {
+            Business: {
+              id,
+              nombre,
+              correo,
+              clave,
+            },
+          }
         },
       ]);
       res.status(200).json(response.rows);
