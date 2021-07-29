@@ -29,7 +29,11 @@ const getLogin = async (req, res) => {
           ]);
         } else {
           res.status(200).json([
-            res.status(200).json(response.rows)
+            {
+              status: 200,
+              message: "Establecimiento logueado",
+            },
+            res.status(200).json(response2.rows)
           ]);
         }
       } catch {
@@ -42,7 +46,7 @@ const getLogin = async (req, res) => {
       res.status(200).json([
         {
           status: 200,
-          messageError: "Usuario logueado",
+          message: "Usuario logueado",
         },
       ], res.status(200).json(response.rows));
       
