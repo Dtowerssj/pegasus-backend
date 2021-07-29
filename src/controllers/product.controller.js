@@ -63,7 +63,7 @@ const updateProduct = async (req, res) => {
     return res.status(200).json(`prooducto ${id} actualizado satisfactoriamente`);
   } catch (error) {
     console.log(error);
-    res.status(500);
+    res.status(500).json('error');
   }
 };
 
