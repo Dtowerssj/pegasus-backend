@@ -29,10 +29,6 @@ const getLogin = async (req, res) => {
           ]);
         } else {
           res.status(200).json([
-            {
-              status: 200,
-              messageError: "Establecimiento logueado",
-            },
             res.status(200).json(response.rows)
           ]);
         }
