@@ -33,7 +33,7 @@ const getLogin = async (req, res) => {
               status: 200,
               message: "Establecimiento logueado",
             },
-            res.status(200).json(response2.rows)
+            json(response2.rows)
           ]);
         }
       } catch {
