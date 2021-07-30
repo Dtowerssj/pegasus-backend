@@ -32,8 +32,9 @@ const getLogin = async (req, res) => {
             {
               status: 200,
               message: "Establecimiento logueado",
+              business: true
             },
-            res.json(response2.rows)
+            response2.rows
           ]);
         }
       } catch {
@@ -43,12 +44,14 @@ const getLogin = async (req, res) => {
       }
 
     } else {
-      res.status(200).json([
+      return res.status(200).json([
         {
           status: 200,
           message: "Usuario logueado",
+          business: false,
         },
-      ], res.status(200).json(response.rows));
+        response.rows
+      ]);
       
     }
     
