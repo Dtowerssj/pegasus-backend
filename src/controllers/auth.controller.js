@@ -34,7 +34,7 @@ const getLogin = async (req, res) => {
               message: "Establecimiento logueado",
               business: true
             },
-            response2.rows
+            response2.rows[0]
           ]);
         }
       } catch {
