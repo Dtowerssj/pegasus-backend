@@ -44,14 +44,14 @@ const getLogin = async (req, res) => {
       }
 
     } else {
-      return res.status(200).json([
+      return res.status(200).json(
         {
           status: 200,
           message: "Usuario logueado",
           business: false,
         },
         response.rows
-      ]);
+      );
       
     }
     
