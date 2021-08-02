@@ -3,8 +3,9 @@ const conn = require("../utils/db");
 
 const getProducts = async (req, res) => {
   const client = await conn.connect();
+  const { id_establecimiento } = req.body;
   try {
-    const response = await client.query(queries.GET_PRODUCTS);
+    const response = await client.query(queries.GET_PRODUCTS, [id_establecimiento]);
     return res.status(200).json(response.rows);
   } catch {
     return res.status(505);
