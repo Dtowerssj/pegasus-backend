@@ -22,7 +22,7 @@ const queries = {
       //Productos
       GET_PRODUCTS: `SELECT * FROM productos WHERE id_establecimiento = $1`,
       GET_PRODUCT: 'SELECT * FROM productos WHERE id = $1',
-      CREATE_PRODUCT: `INSERT INTO productos(nombre, descripcion, precio) VALUES ($1, $2, $3);`,
+      CREATE_PRODUCT: `INSERT INTO productos(nombre, descripcion, precio, id_establecimiento) VALUES ($1, $2, $3, $4);`,
       UPDATE_PRODUCT: 'UPDATE productos SET nombre = $1, descripcion = $2, precio = $3  WHERE id = $4 RETURNING *',
       DELETE_PRODUCT: 'DELETE FROM productos WHERE id = $1',
 

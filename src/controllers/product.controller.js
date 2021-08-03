@@ -29,11 +29,12 @@ const getProductbyId = async (req, res) => {
 
 const createProduct = async (req, res) => {
   try {
-    const { nombre, descripcion, precio } = req.body;
+    const { nombre, descripcion, precio, id_establecimiento } = req.body;
     const response = await conn.query(queries.CREATE_PRODUCT, [
       nombre,
       descripcion,
       precio,
+      id_establecimiento
     ]);
     return res.status(200).json({
       message: "producto creado",
@@ -41,7 +42,8 @@ const createProduct = async (req, res) => {
         Producto: {
           nombre,
           descripcion,
-          precio
+          precio,
+          id_establecimiento
         },
       },
     });
